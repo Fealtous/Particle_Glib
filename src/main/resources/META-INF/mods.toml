@@ -1,25 +1,25 @@
 modLoader="javafml"
-loaderVersion="${loader_version_range}"
-license="${mod_license}"
+loaderVersion="[61,)"
+license="MIT"
 #issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/"
 [[mods]]
-modId="${mod_id}"
-version="${mod_version}"
-displayName="${mod_name}"
+modId="particle_graphics_library"
+version="1.0.0"
+displayName="PartiGLib"
 #logoFile="examplemod.png"
-authors="${mod_authors}"
+authors="Fealtous"
 displayTest="IGNORE_SERVER_VERSION"
-description='''${mod_description}'''
-[[dependencies.${mod_id}]]
+description='''A library for creating entity-like objects for the purpose of drawing arbitrary shapes.'''
+[[dependencies.particle_graphics_library]]
     modId="forge"
     mandatory=true
-    versionRange="${forge_version_range}"
+    versionRange="[61,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.${mod_id}]]
+[[dependencies.particle_graphics_library]]
     modId="minecraft"
     mandatory=true
-    versionRange="${minecraft_version_range}"
+    versionRange="[1.21.11,)"
     ordering="NONE"
     side="BOTH"
 
