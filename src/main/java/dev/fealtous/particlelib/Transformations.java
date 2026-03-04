@@ -19,14 +19,14 @@ public class Transformations {
         return point.xRot(xRot).yRot(yRot);
     }
 
-    public static void translate(Vec3[] points, Vec3 movement) {
+    public static void translate(Vec3[] points, Vec3 delta) {
         for (int i = 0; i < points.length; i++) {
-            points[i] = translate(points[i], movement);
+            points[i] = translate(points[i], delta);
         }
     }
 
-    public static Vec3 translate(Vec3 point, Vec3 movement) {
-        return point.add(movement);
+    public static Vec3 translate(Vec3 point, Vec3 delta) {
+        return point.add(delta);
     }
 
     public static void scale(Vec3[] points, float scale) {

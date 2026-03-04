@@ -1,22 +1,28 @@
 package dev.fealtous.particlelib;
 
 import net.minecraft.world.level.Level;
+import org.jspecify.annotations.NullMarked;
 
 import java.util.*;
 
+@NullMarked
 public class ParticleManager {
     private final Map<Level, List<AbstractParticleEmitter>> emitters = new HashMap<>();
     private final Map<Level, Queue<AbstractParticleEmitter>> toAdd = new HashMap<>();
+    private static final List<AbstractParticleEmitter> EMPTY = new ArrayList<>();
 
 
     public ParticleManager() {}
 
-    public void addEmitter(AbstractParticleEmitter emitter) {
-        var lvl = emitter.level;
-        if (!toAdd.containsKey(lvl)) {
-            toAdd.put(lvl, new ArrayDeque<>());
+    /**
+     * Queue an emitter to be ticked next level tick.
+     * @param emitter to add
+     */
+    public void queueEmitter(AbstractParticleEmitter emitter) {
+        if (!toAdd.containsKey(emitter.level)) {
+            toAdd.put(emitter.level, new ArrayDeque<>());
         }
-        this.toAdd.get(lvl).add(emitter);
+        this.toAdd.get(emitter.level).add(emitter);
     }
 
 
@@ -27,15 +33,14 @@ public class ParticleManager {
     public void tick(Level level) {
         List<AbstractParticleEmitter> newList = new ArrayList<>();
         if (toAdd.get(level) != null) newList.addAll(toAdd.get(level));
-        if (emitters.get(level) instanceof List<AbstractParticleEmitter> quant) {
-            for (AbstractParticleEmitter emitter : quant) {
-                if (!emitter.isNeedsRemoval()) {
-                    newList.add(emitter);
-                    emitter.tick();
-                }
+        toAdd.remove(level);
+        List<AbstractParticleEmitter> quant = emitters.getOrDefault(level, EMPTY);
+        for (AbstractParticleEmitter emitter : quant) {
+            if (!emitter.shouldRemove()) {
+                newList.add(emitter);
+                emitter.tick();
             }
         }
-        toAdd.remove(level);
         emitters.put(level, newList);
     }
 }

@@ -15,6 +15,6 @@ public interface Collider {
      * By default a collision will mark this emitter for removal.
      */
     default void onCollision() {
-        if (this instanceof AbstractParticleEmitter self) self.flagToRemove();
+        if (this instanceof AbstractParticleEmitter self) self.remove();
     };
 }
