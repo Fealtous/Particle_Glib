@@ -4,6 +4,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import org.jspecify.annotations.NullMarked;
 
+@SuppressWarnings("unused")
 @NullMarked
 public abstract class PersistentEntityBoundEmitter extends AbstractParticleEmitter {
     protected final Entity target;

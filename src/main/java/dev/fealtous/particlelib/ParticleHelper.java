@@ -11,6 +11,7 @@ import static dev.fealtous.particlelib.Transformations.translate;
 /**
  * Utility class for spawning particles
  */
+@SuppressWarnings("unused")
 public class ParticleHelper {
     public static void send(ServerLevel level, ParticleOptions particle, Vec3 start, Vec3 end, int intensity) {
         level.sendParticles(particle, start.x, start.y, start.z, intensity, end.x, end.y, end.z, 0);

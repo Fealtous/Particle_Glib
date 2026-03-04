@@ -11,7 +11,7 @@ public abstract class AbstractParticleEmitter {
     }
 
     /**
-     * Spawns particles according to its implementation.
+     * Spawn particles according to its implementation.
      */
     protected abstract void emit();
 

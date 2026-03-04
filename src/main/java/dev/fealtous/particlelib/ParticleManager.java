@@ -5,6 +5,7 @@ import org.jspecify.annotations.NullMarked;
 
 import java.util.*;
 
+@SuppressWarnings("unused")
 @NullMarked
 public class ParticleManager {
     private final Map<Level, List<AbstractParticleEmitter>> emitters = new HashMap<>();
