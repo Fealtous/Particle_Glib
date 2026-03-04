@@ -1,7 +1,9 @@
 package dev.fealtous.particlelib;
 
 import net.minecraft.server.level.ServerLevel;
+import org.jspecify.annotations.NullMarked;
 
+@NullMarked
 public abstract class AbstractParticleEmitter {
     protected ServerLevel level;
     protected boolean needsRemoval = false;

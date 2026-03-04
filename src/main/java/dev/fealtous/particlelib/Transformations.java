@@ -7,6 +7,7 @@ import net.minecraft.world.phys.Vec3;
  * Each particle's location IS a vector and must be treated as such.
  * Array based methods will overwrite the original values.
  */
+@SuppressWarnings("unused")
 public class Transformations {
 
     public static void rotate(Vec3[] points, float xRot, float yRot) {
